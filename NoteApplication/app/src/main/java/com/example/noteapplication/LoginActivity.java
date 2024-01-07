@@ -35,8 +35,9 @@ public class LoginActivity extends AppCompatActivity {
                 if (username.equals("toan") && password.equals("123")) {
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
-                    onClickShowBroadcast(v);
+
                     finish();
+//                    onClickShowBroadcast(v);
 
                 } else {
                     Toast.makeText(LoginActivity.this, "Login fail. Check username and password.", Toast.LENGTH_SHORT).show();

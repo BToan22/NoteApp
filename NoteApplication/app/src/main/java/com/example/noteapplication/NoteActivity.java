@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
+import android.appwidget.AppWidgetManager;
+import android.content.ComponentName;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Build;
@@ -57,8 +59,9 @@ public class NoteActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Handle the back button click
-                onBackPressed();
-                saveNote();
+                Intent intent1 = new Intent(NoteActivity.this, MainActivity.class);
+                startActivity(intent1);
+                finish();
             }
         });
 
@@ -140,8 +143,6 @@ public class NoteActivity extends AppCompatActivity {
         if (!isNoteSaved && !noteContent.isEmpty() && !isChangingConfigurations()) {
             saveNote();
         }
-        Intent serviceIntent = new Intent(this, NotificationReceiver.class);
-        startService(serviceIntent);
     }
 
 
@@ -205,8 +206,10 @@ public class NoteActivity extends AppCompatActivity {
             // Return to MainActivity with the updated note information
             setResultAndFinish();
             Toast.makeText(NoteActivity.this, "Saved", Toast.LENGTH_SHORT).show();
+
         }
     }
+
 
     private void setResultAndFinish() {
         // Return to MainActivity with a result code indicating whether the note was saved
@@ -214,5 +217,14 @@ public class NoteActivity extends AppCompatActivity {
         resultIntent.putExtra("isNoteSaved", isNoteSaved);
         setResult(RESULT_OK, resultIntent);
         finish();
+    }
+    @Override
+    public void onBackPressed() {
+        // Save the note before finishing the activity
+        super.onBackPressed();
+        saveNote();
+
+        // Close the app by finishing the current activity and all activities in the back stack
+        finishAffinity();
     }
 }

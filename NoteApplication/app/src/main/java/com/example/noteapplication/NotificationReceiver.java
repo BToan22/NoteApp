@@ -51,7 +51,7 @@ public class NotificationReceiver extends Service {
             public void run() {
                 showNotification();
             }
-        }, 5, TimeUnit.MINUTES);
+        }, 5, TimeUnit.SECONDS);
     }
 
     private void showNotification() {
