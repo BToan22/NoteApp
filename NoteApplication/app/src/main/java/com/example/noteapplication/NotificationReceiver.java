@@ -55,7 +55,7 @@ public class NotificationReceiver extends Service {
                 Log.d("text","txt");
                 showNotification();
             }
-        }, 5, TimeUnit.SECONDS);
+        }, 5, TimeUnit.MINUTES);
     }
 
     private void showNotification() {

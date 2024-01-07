@@ -151,4 +151,11 @@
             Intent serviceIntent = new Intent(this, NotificationReceiver.class);
             startService(serviceIntent);
         }
+        @Override
+        public void onBackPressed() {
+            // Save the note before finishing the activity
+            super.onBackPressed();
+            // Close the app by finishing the current activity and all activities in the back stack
+            finishAffinity();
+        }
     }

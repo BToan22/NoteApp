@@ -99,6 +99,7 @@ public class NoteActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Notification successfully", Toast.LENGTH_SHORT).show();
             }
         });
+
     }
 
     @Override
@@ -223,9 +224,8 @@ public class NoteActivity extends AppCompatActivity {
     public void onBackPressed() {
         // Save the note before finishing the activity
         super.onBackPressed();
-        saveNote();
-
         // Close the app by finishing the current activity and all activities in the back stack
         finishAffinity();
     }
+
 }
