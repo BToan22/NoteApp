@@ -1,0 +1,17 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/all_notes"
+        android:title="All Notes"
+        android:icon="@drawable/allnote"
+        app:showAsAction="ifRoom|withText"
+        android:layout_height="match_parent" /> <!-- Thêm thuộc tính layout_width -->
+    <item
+        android:id="@+id/recycle_bin"
+        android:title="Recycle Bin"
+        android:icon="@drawable/delete"
+        app:showAsAction="ifRoom|withText"
+        android:layout_height="match_parent" /> <!-- Thêm thuộc tính layout_width -->
+
+
+</menu>

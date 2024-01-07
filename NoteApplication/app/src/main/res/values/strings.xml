@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">NoteApplication</string>
+    <string name="todo">TODO</string>
+    <string name="todoo">TODO</string>
+    <string name="all_note">All Note</string>
+    <string name="recycle_bin">Recycle bin</string>
+</resources>
