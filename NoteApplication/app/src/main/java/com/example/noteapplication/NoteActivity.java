@@ -59,6 +59,7 @@ public class NoteActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Handle the back button click
+                saveNote();
                 Intent intent1 = new Intent(NoteActivity.this, MainActivity.class);
                 startActivity(intent1);
                 finish();

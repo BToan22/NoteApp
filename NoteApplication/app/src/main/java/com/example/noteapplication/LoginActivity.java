@@ -37,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
                     startActivity(intent);
 
                     finish();
-//                    onClickShowBroadcast(v);
+                    onClickShowBroadcast(v);
 
                 } else {
                     Toast.makeText(LoginActivity.this, "Login fail. Check username and password.", Toast.LENGTH_SHORT).show();

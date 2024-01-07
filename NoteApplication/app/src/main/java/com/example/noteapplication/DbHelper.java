@@ -22,7 +22,7 @@ public class DbHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE " + TABLE_NOTE + " (N_ID INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, datetime TEXT, notetext TEXT,status)");
+        db.execSQL("CREATE TABLE " + TABLE_NOTE + " (N_ID INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, datetime TEXT, notetext TEXT)");
     }
 
     @Override
@@ -38,8 +38,7 @@ public class DbHelper extends SQLiteOpenHelper {
         values.put("title", note.getTITLE());
         values.put("datetime", note.getDATETIME());
         values.put("notetext", note.getNOTETEXT());
-        String stt = "active";
-        values.put("status",stt);
+
 
         Cursor cursor = db.query(TABLE_NOTE, null, "N_ID=?", new String[]{String.valueOf(note.getN_ID())}, null, null, null);
         if (cursor != null && cursor.moveToFirst()) {
@@ -61,7 +60,7 @@ public class DbHelper extends SQLiteOpenHelper {
     public List<Note> getALLNote() {
         List<Note> noteList = new ArrayList<>();
 
-        String selectQuery = "SELECT * FROM notes WHERE status = 'active'";
+        String selectQuery = "SELECT * FROM notes ";
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -91,18 +90,11 @@ public class DbHelper extends SQLiteOpenHelper {
 
         db.close();
     }
-    public void restorNote(int noteId) {
-        SQLiteDatabase db = this.getWritableDatabase();
 
-        ContentValues values = new ContentValues();
-        values.put("status", "active");
-
-        db.update(TABLE_NOTE, values, "N_ID = ?", new String[]{String.valueOf(noteId)});
-        db.close();
-    }
 
     public Cursor getdataNote() {
         SQLiteDatabase db = this.getWritableDatabase();
-        return db.rawQuery("SELECT * FROM " + TABLE_NOTE + " WHERE status = ?", new String[]{"active"});
+        return db.rawQuery("SELECT * FROM " + TABLE_NOTE, null);
     }
+
 }

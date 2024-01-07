@@ -9,6 +9,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.IBinder;
+import android.util.Log;
+
 import androidx.core.app.NotificationCompat;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -46,9 +48,11 @@ public class NotificationReceiver extends Service {
 
     private void startNotificationTimer() {
         executor = Executors.newSingleThreadScheduledExecutor();
+        Log.d("text","txt");
         executor.schedule(new Runnable() {
             @Override
             public void run() {
+                Log.d("text","txt");
                 showNotification();
             }
         }, 5, TimeUnit.SECONDS);

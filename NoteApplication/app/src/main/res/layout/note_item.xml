@@ -10,11 +10,11 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#434343"
+        android:background="#F8E559"
         android:orientation="vertical"
         android:padding="16dp">
 
-<!--    Title-->
+        <!--    Title-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -26,12 +26,12 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="TITLE"
-                android:textColor="@android:color/holo_green_light"
+                android:textColor="#3B3486"
 
                 android:textSize="30sp"
                 android:textStyle="bold" />
         </LinearLayout>
-<!--Datetime-->
+        <!--Datetime-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -41,14 +41,14 @@
             <TextView
                 android:id="@+id/txtDATETIME"
                 android:layout_width="0dp"
-               android:layout_height="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="DATETIME"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold" />
         </LinearLayout>
-<!--content-->
+        <!--content-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -61,7 +61,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="CONTENT"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="12sp"
                 android:textStyle="bold" />
         </LinearLayout>
