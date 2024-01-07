@@ -145,4 +145,10 @@
 
             }
         }
+        @Override
+        protected void onDestroy() {
+            super.onDestroy();
+            Intent serviceIntent = new Intent(this, NotificationReceiver.class);
+            startService(serviceIntent);
+        }
     }

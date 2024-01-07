@@ -81,7 +81,7 @@ public class NoteActivity extends AppCompatActivity {
                 alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
                 Intent intent = new Intent(NoteActivity.this, NotificationReceiver.class);
                 intent.putExtra("noteTitle", title); // Pass the note title
-                pendingIntent = PendingIntent.getBroadcast(NoteActivity.this, noteId, intent, 0);
+                pendingIntent = PendingIntent.getBroadcast(NoteActivity.this, noteId, intent, PendingIntent.FLAG_MUTABLE);
 
                 isNoteSaved = true;
                 long triggerTime = System.currentTimeMillis() + 5000; // 20 seconds
@@ -140,6 +140,8 @@ public class NoteActivity extends AppCompatActivity {
         if (!isNoteSaved && !noteContent.isEmpty() && !isChangingConfigurations()) {
             saveNote();
         }
+        Intent serviceIntent = new Intent(this, NotificationReceiver.class);
+        startService(serviceIntent);
     }
 
 
@@ -180,6 +182,9 @@ public class NoteActivity extends AppCompatActivity {
             // Return to MainActivity with the updated note information
             setResultAndFinish();
             Toast.makeText(NoteActivity.this, "Saved", Toast.LENGTH_SHORT).show();
+
+            // Inside the addNoteClicked method or wherever you add a new note
+            String newNote = titleee.getText().toString();
         } else {
             // Save the note if note content is provided
             String datetime = new SimpleDateFormat("EEEE, dd MM yyyy HH:mm a", Locale.getDefault())
